@@ -32,7 +32,7 @@ def add_student(students):
     student['ID'] = input("Enter student ID number: ")
     student['Surname'] = input("Enter student surname: ")
     student['Forename'] = input("Enter student forename: ")
-    student['DOB'] = input("Enter date of birth: ")
+    student['DOB'] = input("Enter date of birth (DD-MM-YYYY): ")
     student['Address'] = input("Enter home address: ")
     student['Phone'] = input("Enter home phone number: ")
     student['Gender'] = input("Enter gender: ")
