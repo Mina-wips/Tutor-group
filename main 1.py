@@ -59,26 +59,34 @@ def generate_report(students):
 def login(username, password):
     return username == "admin" and password == "admin123"
 
+def main_menu():
+    print("\n===== Student Management System =====")
+    print("1. Add Student")
+    print("2. Retrieve Student")
+    print("3. Generate Report")
+    print("4. Logout")
+ 
 def main():
     students = load_students('students.csv')
-
+ 
     while True:
         username = input("Enter username: ")
         password = input("Enter password: ")
-
+ 
         if login(username, password):
-            print("Login successfully.")
+            print("Login successful.")
             break
         else:
-            print("Login failed.")
-
+            print("Login failed. Please try again.")
+ 
     while True:
-        print("\n1. Add Student\n2. Retrieve Student\n3. Generate Report\n4. Logout")
-        choice = input("Enter your choice: ")
-
+        main_menu()
+        choice = input("Enter your choice (1-4): ")
+ 
         if choice == "1":
             add_student(students)
             save_students(students, 'students.csv')
+            print("Student added successfully.")
         elif choice == "2":
             student_id = input("Enter student ID: ")
             retrieve_student(students, student_id)
@@ -88,7 +96,7 @@ def main():
             print("Logged out successfully.")
             break
         else:
-            print("Invalid choice.")
-
+            print("Invalid choice. Please enter a number between 1 and 4.")
+ 
 if __name__ == "__main__":
     main()
